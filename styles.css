@@ -306,6 +306,25 @@ a { color: inherit; }
   font-size: 14px;
 }
 
+.card-row{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+
+.card-row p{
+  margin:0;
+}
+
+.card-icon{
+  width:18px;
+  height:18px;
+  color: var(--primary-300);
+  flex-shrink:0;
+  margin-top:2px;
+  filter: drop-shadow(0 6px 14px rgba(45,127,249,0.25));
+}
+
 .card-compact p {
   margin: 0;
   color: var(--text-primary);
