@@ -2,8 +2,6 @@
    Visual reference: https://reformandopro.github.io/pruebas-html/galeria-completa.html#s01
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-
 :root{
   /* Core palette (aligned with reference gallery) */
   --bg-base:#0A0F1A;
@@ -32,7 +30,7 @@
   --font-ui:'Inter',system-ui,sans-serif;
   --font-num:'Space Grotesk','Inter',sans-serif;
 
-  --shadow-sm: 0 1px 0 rgba(255,255,255,0.03), 0 10px 24px rgba(0,0,0,0.42);
+  --shadow-sm: 0 1px 0 rgba(255,255,255,0.03), 0 10px 22px rgba(0,0,0,0.28);
   --shadow-primary: 0 8px 24px rgba(45,127,249,0.35);
 
   --radius-xl: 18px;
@@ -42,13 +40,26 @@
   --max: 1100px;
 }
 
-* { box-sizing: border-box; }
+*{box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
 
 html, body {
   height: 100%;
 }
 
-body{margin:0;background:#070b12;color:var(--text-primary);font-family:var(--font-ui);-webkit-font-smoothing:antialiased;line-height:1.5;}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(45, 127, 249, 0.08), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(29, 158, 117, 0.06), transparent 40%),
+    #05080f;
+  background-attachment: fixed;
+  color:var(--text-primary);
+  font-family:var(--font-ui);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
 
 a { color: inherit; }
 
@@ -80,9 +91,9 @@ a { color: inherit; }
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid var(--b-subtle);
-  background: rgba(10, 15, 26, 0.80);
-  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(5, 8, 15, 0.72);
+  backdrop-filter: blur(18px);
 }
 
 .header-inner {
@@ -161,10 +172,12 @@ a { color: inherit; }
 }
 
 .hero-card {
-  border: 1px solid var(--b-subtle);
-  background: linear-gradient(180deg, rgba(45,127,249,0.08), transparent 70%), var(--bg-surface);
-  border-radius: var(--radius-xl);
-  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(14, 22, 38, 0.60);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  padding: 28px;
   box-shadow: var(--shadow-sm);
 }
 
@@ -174,9 +187,9 @@ a { color: inherit; }
   height: 26px;
   padding: 0 10px;
   border-radius: 999px;
-  border: 1px solid var(--primary-700);
-  background: var(--primary-900);
-  color: var(--primary-100);
+  background: #0c2f6b;
+  color: #c7defd;
+  border: 1px solid rgba(199, 222, 253, 0.18);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -189,6 +202,7 @@ a { color: inherit; }
   line-height: 1.12;
   letter-spacing: -0.02em;
   font-weight: 700;
+  font-family: var(--font-num);
 }
 
 .hero-subtitle {
@@ -229,6 +243,7 @@ a { color: inherit; }
   font-size: 22px;
   letter-spacing: -0.01em;
   font-weight: 700;
+  font-family: var(--font-num);
 }
 
 .section-desc {
@@ -254,8 +269,10 @@ a { color: inherit; }
 }
 
 .card {
-  border: 1px solid var(--b-subtle);
-  background: var(--bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(14, 22, 38, 0.60);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 14px;
   padding: 16px;
 }
@@ -279,9 +296,11 @@ a { color: inherit; }
 }
 
 .callout {
-  border: 1px solid var(--b-subtle);
-  background: var(--bg-surface);
-  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(14, 22, 38, 0.60);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
   padding: 20px;
 }
 
@@ -299,9 +318,11 @@ a { color: inherit; }
 .final-cta {
   border: 1px solid rgba(45,127,249,0.28);
   background:
-    radial-gradient(800px 260px at 50% 0%, rgba(45,127,249,0.20), transparent 55%),
-    var(--bg-surface);
-  border-radius: var(--radius-xl);
+    radial-gradient(800px 260px at 50% 0%, rgba(45,127,249,0.22), transparent 55%),
+    rgba(14, 22, 38, 0.58);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
   padding: 24px;
   text-align: center;
 }
@@ -341,6 +362,16 @@ a { color: inherit; }
   .hero-title { font-size: 28px; }
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* Fallback: if blur isn't supported, keep readable surfaces */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .hero-card,
+  .card,
+  .callout,
+  .final-cta {
+    background: rgba(14, 22, 38, 0.82);
+  }
 }
 
 @media (max-width: 520px) {
