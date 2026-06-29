@@ -29,11 +29,12 @@
 
   --font-ui:'Inter',system-ui,sans-serif;
   --font-num:'Space Grotesk','Inter',sans-serif;
+  --font-headings: 'Space Grotesk','Inter',sans-serif;
 
   --shadow-sm: 0 1px 0 rgba(255,255,255,0.03), 0 10px 22px rgba(0,0,0,0.28);
   --shadow-primary: 0 8px 24px rgba(45,127,249,0.35);
 
-  --radius-xl: 18px;
+  --radius-xl: 20px;
   --radius-lg: 16px;
   --radius-md: 12px;
 
@@ -53,9 +54,9 @@ body{
   background:
     radial-gradient(circle at 20% 10%, rgba(45, 127, 249, 0.08), transparent 45%),
     radial-gradient(circle at 85% 90%, rgba(29, 158, 117, 0.06), transparent 40%),
-    #05080f;
+    var(--bg-base);
   background-attachment: fixed;
-  color:var(--text-primary);
+  color:var(--text-secondary);
   font-family:var(--font-ui);
   -webkit-font-smoothing:antialiased;
   line-height:1.5;
@@ -91,9 +92,8 @@ a { color: inherit; }
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  background: rgba(5, 8, 15, 0.72);
-  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--b-subtle);
+  background: var(--bg-base);
 }
 
 .header-inner {
@@ -172,10 +172,8 @@ a { color: inherit; }
 }
 
 .hero-card {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(14, 22, 38, 0.60);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--b-subtle);
+  background: var(--bg-surface);
   border-radius: var(--radius-lg);
   padding: 28px;
   box-shadow: var(--shadow-sm);
@@ -202,7 +200,8 @@ a { color: inherit; }
   line-height: 1.12;
   letter-spacing: -0.02em;
   font-weight: 700;
-  font-family: var(--font-num);
+  font-family: var(--font-headings);
+  color: var(--text-primary);
 }
 
 .hero-subtitle {
@@ -243,7 +242,8 @@ a { color: inherit; }
   font-size: 22px;
   letter-spacing: -0.01em;
   font-weight: 700;
-  font-family: var(--font-num);
+  font-family: var(--font-headings);
+  color: var(--text-primary);
 }
 
 .section-desc {
@@ -269,10 +269,8 @@ a { color: inherit; }
 }
 
 .card {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(14, 22, 38, 0.60);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--b-subtle);
+  background: var(--bg-surface);
   border-radius: 14px;
   padding: 16px;
 }
@@ -296,10 +294,8 @@ a { color: inherit; }
 }
 
 .callout {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(14, 22, 38, 0.60);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--b-subtle);
+  background: var(--bg-surface);
   border-radius: var(--radius-lg);
   padding: 20px;
 }
@@ -318,10 +314,8 @@ a { color: inherit; }
 .final-cta {
   border: 1px solid rgba(45,127,249,0.28);
   background:
-    radial-gradient(800px 260px at 50% 0%, rgba(45,127,249,0.22), transparent 55%),
-    rgba(14, 22, 38, 0.58);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+    radial-gradient(800px 260px at 50% 0%, rgba(45,127,249,0.14), transparent 55%),
+    var(--bg-surface);
   border-radius: var(--radius-lg);
   padding: 24px;
   text-align: center;
@@ -364,15 +358,6 @@ a { color: inherit; }
   .grid-2 { grid-template-columns: 1fr; }
 }
 
-/* Fallback: if blur isn't supported, keep readable surfaces */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .hero-card,
-  .card,
-  .callout,
-  .final-cta {
-    background: rgba(14, 22, 38, 0.82);
-  }
-}
 
 @media (max-width: 520px) {
   .grid-4 { grid-template-columns: 1fr; }
