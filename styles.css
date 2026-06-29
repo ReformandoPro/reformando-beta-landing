@@ -104,6 +104,25 @@ a { color: inherit; }
   padding: 16px 0;
 }
 
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand-logo{flex-shrink:0;}
+
+.brand-mark{
+  display:inline-block;
+  width:34px;
+  height:34px;
+  border-radius:9px;
+  background: var(--primary-500);
+  box-shadow: 0 4px 14px rgba(45,127,249,0.40);
+}
+
+.brand-text{display:flex;flex-direction:column;gap:1px;}
+
 .brand-name {
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -271,7 +290,7 @@ a { color: inherit; }
 .card {
   border: 1px solid var(--b-subtle);
   background: var(--bg-surface);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   padding: 16px;
 }
 
